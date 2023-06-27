@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import theme from './Theme/theme';
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -9,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     body, html {
         width: 100%;
         height: 100%;
+        background-color: ${theme.color.background};
     }
     body {
         font-family: 'Noto Sans KR', sans-serif;
