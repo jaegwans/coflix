@@ -4,6 +4,7 @@ const color = {
     white: '#ffffff', // text color
     black: '#000000',
     background: '#131313',
+    grey: '#6b6b6b',
 };
 
 const fontWeight = {
