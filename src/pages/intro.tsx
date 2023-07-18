@@ -18,9 +18,12 @@ function Intro() {
         <StyledIntro>
             <Waves />
             <StyledBlind />
-            <StyledLogo data-aos="fade-in" data-aos-delay="850">
-                FATUBE
-            </StyledLogo>
+
+            <div className="logoWrapper">
+                <StyledLogo data-aos="fade-in" data-aos-delay="850">
+                    FATUBE
+                </StyledLogo>
+            </div>
             <StyledHello>
                 {show ? <LottieWrapper lottieData={hello} /> : null}
             </StyledHello>
@@ -61,7 +64,6 @@ const StyledHello = styled.div`
 const StyledLogo = styled.div`
     font-size: 2.5rem;
     font-weight: 700;
-    text-decoration-line: underline wavy;
 `;
 const StyledStartBtn = styled(Link)`
     cursor: pointer;
@@ -81,6 +83,23 @@ const StyledStartBtn = styled(Link)`
 `;
 
 const StyledIntro = styled.div`
+    .logoWrapper {
+        animation-duration: 1s;
+        animation-name: fiyfire;
+        animation-delay: 3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+
+        @keyframes fiyfire {
+            from {
+                color: ${({ theme }) => theme.color.middleWhite};
+            }
+
+            to {
+                color: ${({ theme }) => theme.color.white};
+            }
+        }
+    }
     display: flex;
     flex-direction: column;
     justify-content: space-around;
