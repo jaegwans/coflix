@@ -6,14 +6,12 @@ import Link from 'next/link';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Waves from '@/components/Waves';
+import useDelay from '@/hooks/useDelay';
 
 function Intro() {
-    const [showhello, setShowhello] = useState<boolean>(false); // delay hoosk로 빼기
+    const [show] = useDelay(1000);
     useEffect(() => {
         AOS.init();
-        setTimeout(() => {
-            setShowhello(true);
-        }, 1000);
     }, []);
 
     return (
@@ -24,7 +22,7 @@ function Intro() {
                 FATUBE
             </StyledLogo>
             <StyledHello>
-                {showhello ? <LottieWrapper lottieData={hello} /> : null}
+                {show ? <LottieWrapper lottieData={hello} /> : null}
             </StyledHello>
 
             <StyledStartBtn href="/main">시작하기</StyledStartBtn>
@@ -67,6 +65,7 @@ const StyledLogo = styled.div`
 `;
 const StyledStartBtn = styled(Link)`
     cursor: pointer;
+    margin-bottom: 1.875rem;
     border: 0.0938rem solid ${({ theme }) => theme.color.grey};
     padding: 0.5rem 0.7rem 0.3rem 0.7rem;
     font-size: 1.8rem;
