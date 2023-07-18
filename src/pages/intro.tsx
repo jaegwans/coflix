@@ -18,7 +18,7 @@ function Intro() {
         <StyledIntro>
             <Waves />
             <StyledBlind />
-            <StyledLogo data-aos="fade-in" data-aos-delay="700">
+            <StyledLogo data-aos="fade-in" data-aos-delay="850">
                 FATUBE
             </StyledLogo>
             <StyledHello>
