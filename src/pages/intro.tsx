@@ -3,10 +3,14 @@ import styled from 'styled-components';
 import LottieWrapper from '@/components/common/LottieWrapper';
 import hello from '@/assets/lottie/hello.json';
 import Link from 'next/link';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import Waves from '@/components/Waves';
 
 function Intro() {
     const [showhello, setShowhello] = useState<boolean>(false); // delay hoosk로 빼기
     useEffect(() => {
+        AOS.init();
         setTimeout(() => {
             setShowhello(true);
         }, 1000);
@@ -14,16 +18,42 @@ function Intro() {
 
     return (
         <StyledIntro>
-            <StyledLogo>FATUBE</StyledLogo>
+            <Waves />
+            <StyledBlind />
+            <StyledLogo data-aos="fade-in" data-aos-delay="700">
+                FATUBE
+            </StyledLogo>
             <StyledHello>
                 {showhello ? <LottieWrapper lottieData={hello} /> : null}
             </StyledHello>
+
             <StyledStartBtn href="/main">시작하기</StyledStartBtn>
         </StyledIntro>
     );
 }
 
 export default Intro;
+const StyledBlind = styled.div`
+    z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    background-color: ${({ theme }) => theme.color.white};
+    position: fixed;
+    top: 0;
+    animation-duration: 1s;
+    animation-delay: 0.2s;
+    animation-name: pull-down;
+    animation-fill-mode: forwards;
+    @keyframes pull-down {
+        from {
+            height: 100%;
+        }
+
+        to {
+            height: 0%;
+        }
+    }
+`;
 
 const StyledHello = styled.div`
     width: 80vw;
@@ -40,7 +70,7 @@ const StyledStartBtn = styled(Link)`
     border: 0.0938rem solid ${({ theme }) => theme.color.grey};
     padding: 0.5rem 0.7rem 0.3rem 0.7rem;
     font-size: 1.8rem;
-    transition: border 0.3s ease-in-out 0.1s, transform 0.3s ease-in-out 0.01s;
+    transition: border 0.3s ease-in-out 0.19s, transform 0.3s ease-in-out;
 
     &:hover {
         border: 0.0938rem solid ${({ theme }) => theme.color.white};
