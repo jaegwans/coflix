@@ -25,7 +25,7 @@ function Intro() {
                 </StyledLogo>
             </div>
             <StyledHello>
-                {show ? <LottieWrapper lottieData={hello} /> : null}
+                {show && <LottieWrapper lottieData={hello} />}
             </StyledHello>
 
             <StyledStartBtn href="/main">시작하기</StyledStartBtn>
@@ -84,19 +84,21 @@ const StyledStartBtn = styled(Link)`
 
 const StyledIntro = styled.div`
     .logoWrapper {
-        animation-duration: 1s;
-        animation-name: fiyfire;
-        animation-delay: 3s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
+        @media screen and (max-width: 768px) {
+            animation-duration: 1s;
+            animation-name: fiyfire;
+            animation-delay: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
 
-        @keyframes fiyfire {
-            from {
-                color: ${({ theme }) => theme.color.middleWhite};
-            }
+            @keyframes fiyfire {
+                from {
+                    color: ${({ theme }) => theme.color.middleWhite};
+                }
 
-            to {
-                color: ${({ theme }) => theme.color.white};
+                to {
+                    color: ${({ theme }) => theme.color.white};
+                }
             }
         }
     }
