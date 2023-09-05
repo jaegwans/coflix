@@ -1,35 +1,36 @@
 {
-  "name": "fatube",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@types/node": "20.3.1",
-    "@types/react": "18.2.14",
-    "@types/react-dom": "18.2.6",
-    "aos": "^2.3.4",
-    "axios": "^1.4.0",
-    "eslint": "8.43.0",
-    "eslint-config-next": "13.4.7",
-    "json-server": "^0.17.3",
-    "next": "13.4.7",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-lottie": "^1.2.3",
-    "react-query": "^3.39.3",
-    "recoil": "^0.7.7",
-    "typescript": "5.1.3"
-  },
-  "devDependencies": {
-    "@types/aos": "^3.0.4",
-    "@types/react-lottie": "^1.2.6",
-    "@types/styled-components": "^5.1.26",
-    "babel-plugin-styled-components": "^2.1.4",
-    "styled-components": "^5.3.10"
-  }
+    "name": "fatube",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "serve-json": "json-server --watch db.json --port 4000"
+    },
+    "dependencies": {
+        "@types/node": "20.3.1",
+        "@types/react": "18.2.14",
+        "@types/react-dom": "18.2.6",
+        "aos": "^2.3.4",
+        "axios": "^1.4.0",
+        "eslint": "8.43.0",
+        "eslint-config-next": "13.4.7",
+        "json-server": "^0.17.3",
+        "next": "13.4.7",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "react-lottie": "^1.2.3",
+        "react-query": "^3.39.3",
+        "recoil": "^0.7.7",
+        "typescript": "5.1.3"
+    },
+    "devDependencies": {
+        "@types/aos": "^3.0.4",
+        "@types/react-lottie": "^1.2.6",
+        "@types/styled-components": "^5.1.26",
+        "babel-plugin-styled-components": "^2.1.4",
+        "styled-components": "^5.3.10"
+    }
 }

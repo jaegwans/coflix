@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import theme from '@/styles/Theme/theme';
 import { RecoilRoot } from 'recoil';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 //https://velog.io/@cjy0029/React-Query-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC2
 export default function App({ Component, pageProps }: AppProps) {
@@ -15,6 +16,10 @@ export default function App({ Component, pageProps }: AppProps) {
                     <RecoilRoot>
                         <GlobalStyle />
                         <Component {...pageProps} />
+                        <ReactQueryDevtools
+                            initialIsOpen={false}
+                            position="bottom-right"
+                        />
                     </RecoilRoot>
                 </QueryClientProvider>
             </ThemeProvider>
