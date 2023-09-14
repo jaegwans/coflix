@@ -4,24 +4,37 @@ import Category from '@/components/Category';
 import Featured from '@/components/Featured';
 import Tab from '@/components/common/Tab';
 import axios from 'axios';
-import { useQuery } from 'react-query';
+import { useQuery, useQueries, dehydrate, QueryClient } from 'react-query';
 import useYoutube from '@/hooks/useYoutube';
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { youtube } from 'scrape-youtube';
 
-function Main() {
-    // const { isLoading, data, isError, error } = useQuery('super-heroes', () => {
-    //     //첫 인자는 이름 두번쨰인자는 프로미스를 반환하는 콜백함수를 받는다.
-    //     return axios.get(
-    //         'https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=' +
-    //             process.env.NEXT_PUBLIC_GOOGLE_KEY
-    //     );
-    // });
+type IvideoJson = {
+    title: string;
+    id: string;
+    url: string;
+    thumbnail: string;
+    description: string;
+    duration: string;
+    uploadedAt: string;
+    views: string;
+};
 
-    const { isLoading, data, isError, error }: IYoutube = useYoutube();
-    if (isError) {
-        return <h2>{(error as any).message}</h2>;
-    } else {
-        console.log(data);
-    }
+export const getServerSideProps: GetServerSideProps = async () => {
+    const { videos }: { videos: any } = await youtube.search('김재관');
+    const videosJson: IvideoJson[] = videos;
+    return {
+        props: {
+            videosJson,
+        },
+    };
+};
+
+function Main({
+    videosJson,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+    console.log(videosJson);
+
     return (
         <StyledMain>
             <Tab />
