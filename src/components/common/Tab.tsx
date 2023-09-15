@@ -12,6 +12,7 @@ export default Tab;
 const StyledTab = styled.div<{ paint: boolean }>`
     display: flex;
     position: fixed;
+    border-width: 0;
     top: 0;
     z-index: 10;
     transition: background-color 0.2s ease-in-out;
