@@ -4,36 +4,44 @@ import Category from '@/components/Category';
 import Featured from '@/components/Featured';
 import Tab from '@/components/common/Tab';
 import axios from 'axios';
-import { useQuery, useQueries, dehydrate, QueryClient } from 'react-query';
-import useYoutube from '@/hooks/useYoutube';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { youtube } from 'scrape-youtube';
-
-type IvideoJson = {
-    title: string;
-    id: string;
-    url: string;
-    thumbnail: string;
-    description: string;
-    duration: string;
-    uploadedAt: string;
-    views: string;
-};
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { videoListsState } from '@/atoms/youtube';
+import keywords from '@/data/Search/keywords.json';
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const { videos }: { videos: any } = await youtube.search('김재관');
-    const videosJson: IvideoJson[] = videos;
-    return {
-        props: {
-            videosJson,
-        },
-    };
+    try {
+        const videoLists = await Promise.all(
+            keywords.map((keyword) => youtube.search(keyword))
+        );
+
+        return {
+            props: {
+                videoLists,
+            },
+        };
+    } catch (error) {
+        console.log(error);
+        return {
+            props: {
+                videoLists: [],
+            },
+        };
+    }
 };
 
 function Main({
-    videosJson,
+    videoLists,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-    console.log(videosJson);
+    console.log(videoLists);
+
+    const [globalVideoLists, setGlobalVideoList] =
+        useRecoilState(videoListsState);
+
+    useEffect(() => {
+        setGlobalVideoList(videoLists);
+    }, []);
 
     return (
         <StyledMain>

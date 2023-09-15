@@ -1,7 +1,7 @@
 ## TODO
 
 -   [x] youtube api 연결
--   [ ] youtube api - recoil 연결
+-   [x] youtube api - recoil 연결
 -   [ ] npm 해결
 -   [ ] 모바일 레이아웃
 -   [ ] pc 레이아웃
