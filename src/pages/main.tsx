@@ -5,16 +5,16 @@ import Featured from '@/components/Featured';
 import Tab from '@/components/common/Tab';
 import axios from 'axios';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
-import { youtube } from 'scrape-youtube';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { videoListsState } from '@/atoms/youtube';
-import keywords from '@/data/Search/keywords.json';
+import getVideoList from '@/hooks/api/getVideoLists';
 
 export const getServerSideProps: GetServerSideProps = async () => {
     try {
-        const videoLists = await Promise.all(
-            keywords.map((keyword) => youtube.search(keyword))
-        );
+        // const videoLists = await Promise.all(
+        //     keywords.map((keyword) => youtube.search(keyword))
+        // );
+        const videoLists = await getVideoList();
 
         return {
             props: {
