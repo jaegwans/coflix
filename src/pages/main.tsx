@@ -11,9 +11,6 @@ import getVideoList from '@/hooks/api/getVideoLists';
 
 export const getServerSideProps: GetServerSideProps = async () => {
     try {
-        // const videoLists = await Promise.all(
-        //     keywords.map((keyword) => youtube.search(keyword))
-        // );
         const videoLists = await getVideoList();
 
         return {
@@ -41,8 +38,7 @@ function Main({
 
     useEffect(() => {
         setGlobalVideoList(videoLists);
-    }, []);
-
+    }, [videoLists, setGlobalVideoList]);
     return (
         <StyledMain>
             <Tab />
