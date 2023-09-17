@@ -59,6 +59,8 @@ const StyledBlind = styled.div`
 const StyledHello = styled.div`
     width: 80vw;
     height: 200px;
+    display: flex;
+    justify-content: center;
 `;
 
 const StyledLogo = styled.div`
