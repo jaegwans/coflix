@@ -7,6 +7,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Waves from '@/components/Waves';
 import useDelay from '@/hooks/useDelay';
+import { useRouter } from 'next/router';
+import onPush from '@/hooks/onPush';
 
 function Intro() {
     const [show] = useDelay(1000);
@@ -28,7 +30,9 @@ function Intro() {
                 {show && <LottieWrapper lottieData={hello} />}
             </StyledHello>
 
-            <StyledStartBtn href="/main">시작하기</StyledStartBtn>
+            <StyledStartBtn onClick={() => onPush('main')}>
+                시작하기
+            </StyledStartBtn>
         </StyledIntro>
     );
 }
@@ -67,12 +71,13 @@ const StyledLogo = styled.div`
     font-size: 2.5rem;
     font-weight: 700;
 `;
-const StyledStartBtn = styled(Link)`
+const StyledStartBtn = styled.button`
     cursor: pointer;
     margin-bottom: 1.875rem;
     border: 0.0938rem solid ${({ theme }) => theme.color.grey};
     padding: 0.5rem 0.7rem 0.3rem 0.7rem;
     font-size: 1.8rem;
+    color: white;
     transition: border 0.3s ease-in-out 0.19s, transform 0.3s ease-in-out;
 
     &:hover {

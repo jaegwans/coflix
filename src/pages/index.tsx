@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import { useEffect } from 'react';
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 
 function Index() {
+    const router = useRouter();
     useEffect(() => {
         //추후 토큰을 이용한 분기처리
-        Router.push('/intro');
+        router.push('/intro');
     }, []);
     return <StyledHome />;
 }
