@@ -1,3 +1,7 @@
+# demo
+
+https://fatube.jaegwan.com(https://fatube.jaegwan.com)
+
 ## TODO
 
 27일까지
@@ -7,18 +11,19 @@ d-11
 -   [x] youtube api 연결
 -   [x] youtube api - recoil 연결
 
-d-10
+d-9
 
 -   [x] api 함수로 빼기
 -   [x] npm 해결
 
-d-9
+d-8
 
 -   [ ] 모바일 레이아웃
--   [ ] 배포 테스트 - vercel
+-   [x] 배포 테스트 - vercel
 
 d-8
 
+-   [] 모바일 레이아웃
 -   [ ] 카테고리 별 페이지 데이터 세팅
 -   [ ] 카테고리 디테일 페이지 모바일
 
@@ -29,6 +34,7 @@ d-7
 
 d-6
 
+-   [ ] 계절별
 -   [ ] 렌더링 최적화(lazy,React.memo,useMemo,useCallback,useEffectInner)
 
 d-5
