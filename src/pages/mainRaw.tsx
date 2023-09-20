@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Category from '@/components/Category';
+import Category from '@/components/main/Category';
 import Featured from '@/components/Featured';
 import Tab from '@/components/common/Tab';
 import axios from 'axios';
@@ -17,7 +17,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
         return {
             props: {
                 videoLists,
-                fallback: true,
             },
         };
     } catch (error) {
@@ -50,12 +49,18 @@ function MainRaw({
         <StyledMain>
             <Tab />
             <Featured />
-            <Category />
-            <Category />
-            <Category />
-            <Category />
-            <Category />
-            <Category />
+            {videoLists.map(
+                (
+                    videoList: { videos: Ivideo[] },
+                    index: React.Key | null | undefined //객체에 id가 없어 불가피하게 index 사용
+                ) => (
+                    <Category
+                        key={index}
+                        id={index}
+                        videos={videoList.videos}
+                    />
+                )
+            )}
         </StyledMain>
     );
 }
