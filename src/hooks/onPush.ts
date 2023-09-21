@@ -1,5 +1,5 @@
 import Router from 'next/router';
-function onPush(...urls: string[]) {
+function onPush(...urls: any) {
     if (urls.length === 1) {
         Router.push(urls[0]);
     } else if (urls.length === 2) {

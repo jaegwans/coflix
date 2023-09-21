@@ -3,9 +3,16 @@ import styled from 'styled-components';
 import AddIcon from '@mui/icons-material/Add';
 import onPush from '@/hooks/onPush';
 
-function VideoMore() {
+function VideoMore({ data }: { data: React.Key | null | undefined }) {
     return (
-        <StyledVideoMore onClick={() => onPush('/categoryDetail')}>
+        <StyledVideoMore
+            onClick={() =>
+                onPush({
+                    pathname: '/categoryDetail',
+                    query: { id: data },
+                })
+            }
+        >
             <StyledMoreIcon fontSize="large" />
         </StyledVideoMore>
     );
@@ -20,6 +27,7 @@ const StyledVideoMore = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 0.625rem;
 `;
 
 const StyledMoreIcon = styled(AddIcon)`

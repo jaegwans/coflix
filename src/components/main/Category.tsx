@@ -18,15 +18,21 @@ function Category({
     // null 값에 대한 예외 처리 필요 서스펜스와 에러처리로
     return (
         <StyledCategory>
-            <StyledCategoryTitle onClick={() => onPush('/categoryDetail')}>
+            <StyledCategoryTitle
+                onClick={() =>
+                    onPush({
+                        pathname: '/categoryDetail',
+                        query: { id: id },
+                    })
+                }
+            >
                 {isNumber(id) ? keywords[id] : '서버 호출 에러'}
             </StyledCategoryTitle>
-            {/* <StyeldVideos>{JSON.stringify(videos)}</StyeldVideos> */}
             <StyeldVideos>
                 {videos.map((video, i) => {
                     return <Video video={video} i={i} key={i} />;
                 })}
-                {<VideoMore />}
+                {<VideoMore data={id} />}
             </StyeldVideos>
         </StyledCategory>
     );

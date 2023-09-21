@@ -7,8 +7,10 @@ import axios from 'axios';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
-import { videoListsState } from '@/atoms/youtube';
+import { videoListsState, keywordsState } from '@/atoms/youtube';
 import getVideoList from '@/hooks/api/getVideoLists';
+import keywords from '@/data/Search/keywords.json';
+import Layout from '@/components/common/Layout';
 
 export const getServerSideProps: GetServerSideProps = async () => {
     try {
@@ -38,15 +40,18 @@ function MainRaw({
     const [globalVideoLists, setGlobalVideoList] =
         useRecoilState(videoListsState);
 
+    const [globalKeywords, setGlobalKeywords] = useRecoilState(keywordsState);
+
     useEffect(() => {
         setGlobalVideoList(videoLists);
-    }, [videoLists, setGlobalVideoList]);
+        setGlobalKeywords(keywords);
+    }, [videoLists, setGlobalVideoList, setGlobalKeywords]);
 
     if (router.isFallback) {
         return <p>로딩중</p>;
     }
     return (
-        <StyledMain>
+        <StyledLayout>
             <Tab />
             <Featured />
             {videoLists.map(
@@ -61,13 +66,13 @@ function MainRaw({
                     />
                 )
             )}
-        </StyledMain>
+        </StyledLayout>
     );
 }
 
 export default MainRaw;
 
-const StyledMain = styled.div`
+const StyledLayout = styled(Layout)`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
