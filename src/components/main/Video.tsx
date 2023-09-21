@@ -1,13 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
-
-function getShortTitle(title: string) {
-    if (title.length > 13) {
-        return title.slice(0, 13) + '...';
-    }
-    return title;
-}
+import getShortTitle from '@/hooks/getShortTitle';
 
 //480 360
 function Video({ video, i }: { video: Ivideo; i: number }) {

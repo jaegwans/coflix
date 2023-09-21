@@ -25,6 +25,8 @@ const StyledTab = styled.div<{ paint: boolean }>`
     ${({ paint }) =>
         paint &&
         css`
-            background-color: ${({ theme }) => theme.color.black};
+            /* background-color: ${({ theme }) => theme.color.black}; */
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
         `}
 `;

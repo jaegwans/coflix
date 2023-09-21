@@ -4,6 +4,8 @@ import Video from './Video';
 import keywords from '@/data/Search/keywords.json';
 import { isNumber } from '@/hooks/type/guard';
 import Image from 'next/image';
+import VideoMore from './VideoMore';
+import onPush from '@/hooks/onPush';
 
 function Category({
     videos,
@@ -16,7 +18,7 @@ function Category({
     // null 값에 대한 예외 처리 필요 서스펜스와 에러처리로
     return (
         <StyledCategory>
-            <StyledCategoryTitle>
+            <StyledCategoryTitle onClick={() => onPush('/categoryDetail')}>
                 {isNumber(id) ? keywords[id] : '서버 호출 에러'}
             </StyledCategoryTitle>
             {/* <StyeldVideos>{JSON.stringify(videos)}</StyeldVideos> */}
@@ -24,7 +26,7 @@ function Category({
                 {videos.map((video, i) => {
                     return <Video video={video} i={i} key={i} />;
                 })}
-                {/* 더보기 추가 */}
+                {<VideoMore />}
             </StyeldVideos>
         </StyledCategory>
     );
@@ -33,9 +35,11 @@ function Category({
 export default Category;
 
 const StyeldVideos = styled.div`
-    margin-top: 1.8rem;
+    margin-top: 4rem;
     display: flex;
     justify-content: flex-start;
+    align-items: center;
+
     gap: 0.625rem;
 `;
 
@@ -48,6 +52,7 @@ const StyledCategoryTitle = styled.div`
 const StyledCategory = styled.div`
     height: 11.25rem;
     width: 100%;
+    display: flex;
     overflow-y: hidden;
     overflow-x: scroll;
     -ms-overflow-style: none; /* IE and Edge */
