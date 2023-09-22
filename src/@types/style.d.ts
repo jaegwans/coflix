@@ -3,6 +3,7 @@ import {
     BorderRadiusTypes,
     ColorsTypes,
     FontWeightTypes,
+    LenTypes,
 } from 'styles/Theme/theme';
 
 declare module 'styled-components' {
@@ -10,5 +11,6 @@ declare module 'styled-components' {
         color: ColorsTypes;
         fontWeight: FontWeightTypes;
         borderRadius: BorderRadiusTypes;
+        len: LenTypes;
     }
 }

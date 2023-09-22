@@ -7,7 +7,6 @@ import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import React from 'react';
 
-//https://velog.io/@cjy0029/React-Query-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC2
 export default function App({ Component, pageProps }: AppProps) {
     const [queryClient] = React.useState(() => new QueryClient());
     return (
@@ -18,10 +17,6 @@ export default function App({ Component, pageProps }: AppProps) {
                         <RecoilRoot>
                             <GlobalStyle />
                             <Component {...pageProps} />
-                            <ReactQueryDevtools
-                                initialIsOpen={false}
-                                position="bottom-right"
-                            />
                         </RecoilRoot>
                     </Hydrate>
                 </QueryClientProvider>

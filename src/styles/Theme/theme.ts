@@ -1,5 +1,9 @@
 import { DefaultTheme } from 'styled-components';
 
+const len = {
+    tabHeight: '4.375rem',
+};
+
 const color = {
     white: '#ffffff', // text color
     middleWhite: '#c2c2c2', // background color
@@ -24,11 +28,13 @@ const borderRadius = {
 export type ColorsTypes = typeof color;
 export type FontWeightTypes = typeof fontWeight;
 export type BorderRadiusTypes = typeof borderRadius;
+export type LenTypes = typeof len;
 
 const theme: DefaultTheme = {
     color,
     fontWeight,
     borderRadius,
+    len,
 };
 
 export default theme;

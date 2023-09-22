@@ -53,10 +53,11 @@ const StyledCategoryTitle = styled.div`
     margin: 0.2rem 0.2rem 0.2rem 0.8rem;
     position: absolute;
     font-size: 1.2rem;
+    cursor: pointer;
 `;
 
 const StyledCategory = styled.div`
-    height: 11.25rem;
+    height: 13.25rem;
     width: 100%;
     display: flex;
     overflow-y: hidden;

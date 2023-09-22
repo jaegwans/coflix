@@ -81,5 +81,5 @@ const StyledLayout = styled(Layout)`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 0.625rem;
+    gap: 1rem;
 `;

@@ -21,7 +21,7 @@ const StyledTab = styled.div<{ paint: boolean }>`
     align-items: center;
     background-color: rgba(0, 0, 0, 0);
     width: 100%;
-    height: 4.375rem;
+    height: ${({ theme }) => theme.len.tabHeight};
     ${({ paint }) =>
         paint &&
         css`

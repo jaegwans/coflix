@@ -28,6 +28,7 @@ const StyledVideoMore = styled.div`
     justify-content: center;
     align-items: center;
     margin-right: 0.625rem;
+    cursor: pointer;
 `;
 
 const StyledMoreIcon = styled(AddIcon)`
