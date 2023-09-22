@@ -30,8 +30,8 @@ function CategoryDetail() {
         <StyledLayout>
             <StyledCategoryTitle>{keywords[id]}</StyledCategoryTitle>
             <StyledVideos>
-                {videoLists != null &&
-                    (videoLists[id] as IvideoList).videos.map(
+                {videoLists != undefined &&
+                    (videoLists[id] as IvideoList)?.videos?.map(
                         (video: Ivideo, i: number) => {
                             //any 수정 필요
                             return (

@@ -7,7 +7,7 @@ function Index() {
     useEffect(() => {
         //추후 토큰을 이용한 분기처리
         router.push('/intro');
-    }, []);
+    }, [router]);
     return <StyledHome />;
 }
 
