@@ -12,7 +12,11 @@ import getVideoList from '@/hooks/api/getVideoLists';
 import keywords from '@/data/Search/keywords.json';
 import Layout from '@/components/common/Layout';
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+    res.setHeader(
+        'Cache-Control',
+        'public, max-age=1800, s-maxage=3600, stale-while-revalidate=59'
+    );
     try {
         const videoLists = await getVideoList();
 
