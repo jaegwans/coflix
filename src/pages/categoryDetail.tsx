@@ -24,20 +24,27 @@ function CategoryDetail() {
                 router.push('/main');
             }
         }
-    }, [router.query]);
+    }, [router.query, router, videoLists]);
 
     return (
         <StyledLayout>
             <StyledCategoryTitle>{keywords[id]}</StyledCategoryTitle>
             <StyledVideos>
-                {(videoLists[id] as any).videos.map(
-                    (video: Ivideo, i: number) => {
-                        //any 수정 필요
-                        return (
-                            <Video video={video} i={i} key={i} h={280} c={id} />
-                        );
-                    }
-                )}
+                {videoLists != null &&
+                    (videoLists[id] as IvideoList).videos.map(
+                        (video: Ivideo, i: number) => {
+                            //any 수정 필요
+                            return (
+                                <Video
+                                    video={video}
+                                    i={i}
+                                    key={i}
+                                    h={280}
+                                    c={id}
+                                />
+                            );
+                        }
+                    )}
                 {/* {<VideoMore data={id} />} */}
             </StyledVideos>
         </StyledLayout>

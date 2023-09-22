@@ -12,6 +12,13 @@ interface Ivideo {
     description: string;
 }
 
+interface IvideoList {
+    videos: Ivideo[];
+    channels: [];
+    playlists: [];
+    streams: [];
+}
+
 interface Ichannel {
     id: string;
     link: string;
