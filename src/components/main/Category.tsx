@@ -28,9 +28,10 @@ function Category({
                 {isNumber(id) ? keywords[id] : '서버 호출 에러'}
             </StyledCategoryTitle>
             <StyeldVideos>
-                {videos.map((video, i) => {
-                    return <Video video={video} i={i} key={i} />;
-                })}
+                {isNumber(id) &&
+                    videos.map((video, i) => {
+                        return <Video video={video} i={i} key={i} c={id} />;
+                    })}
                 {<VideoMore data={id} />}
             </StyeldVideos>
         </StyledCategory>
@@ -65,4 +66,5 @@ const StyledCategory = styled.div`
     &::-webkit-scrollbar {
         display: none;
     }
+    margin-top: 1rem;
 `;
