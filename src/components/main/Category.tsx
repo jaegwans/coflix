@@ -14,7 +14,6 @@ function Category({
     videos: Ivideo[];
     id: React.Key | null | undefined;
 }) {
-    console.log(id, videos);
     // null 값에 대한 예외 처리 필요 서스펜스와 에러처리로
     return (
         <StyledCategory>

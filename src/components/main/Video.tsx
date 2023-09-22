@@ -4,14 +4,22 @@ import styled from 'styled-components';
 import getShortTitle from '@/hooks/getShortTitle';
 
 //480 360
-function Video({ video, i }: { video: Ivideo; i: number }) {
+function Video({
+    video,
+    i,
+    h = 180,
+}: {
+    video: Ivideo;
+    i: number;
+    h?: number;
+}) {
     return (
         <StyledImageWrapper>
             <StyledVideoTitle>{getShortTitle(video.title)}</StyledVideoTitle>
             <Image
                 src={video.thumbnail}
-                width={240}
-                height={180}
+                width={h * (4 / 3)}
+                height={h}
                 alt={video.title}
                 style={{ zIndex: 1 }}
             />
