@@ -1,12 +1,30 @@
 import Tab from '@/components/common/Tab';
+import styled from 'styled-components';
 
-function Layout({ children }: { children: React.ReactNode }) {
+function Layout({
+    className,
+    children,
+}: {
+    children: React.ReactNode;
+    className?: string;
+}) {
     return (
-        <div>
+        <StyeldLayoutWrapper className={className}>
             <Tab />
-            <div>{children}</div>
-        </div>
+            <StyledLayoutInnerWrapper>{children}</StyledLayoutInnerWrapper>
+        </StyeldLayoutWrapper>
     );
 }
 
 export default Layout;
+
+const StyeldLayoutWrapper = styled.div`
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+`;
+const StyledLayoutInnerWrapper = styled.div`
+    position: relative;
+    width: 100%;
+    height: 100%;
+`;
