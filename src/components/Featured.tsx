@@ -47,6 +47,7 @@ const StyledFeatured = styled.div`
     align-items: center;
     height: 12.5rem;
     padding-left: 1.6rem;
+    padding-bottom: 0.5rem;
 
     background-image: url('/images/ps-back.jpg');
     background-size: cover;
