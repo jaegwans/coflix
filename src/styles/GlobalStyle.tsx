@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     body, html {
         width: 100%;
         height: 100%;
-        background-color: ${theme.color.background};
+        background-color: ${theme.color.black};//동영상 썸네일 여백으로 수정 
         color: ${theme.color.white};
     }
     body {
