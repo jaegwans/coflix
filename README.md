@@ -36,12 +36,13 @@ d-7
 토
 
 -   [ ] 피쳐드 컴포넌트 완성(코테)
--   [ ] 탭 완성
+-   [x] 탭 완성
 -   [ ] 카테고리more 웹뷰디테일
 
 월
 
 -   [ ] 렌더링 최적화(lazy,React.memo,useMemo,useCallback,useEffectInner)
+-   [ ] recoil get 처리
 -   [ ] 선언형 에러처리,로딩처리(suspense callback)
 -   [ ] 인트로 처리
 

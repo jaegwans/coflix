@@ -5,26 +5,47 @@ import { useRecoilValue } from 'recoil';
 import { videoListsState } from '@/atoms/youtube';
 import styled from 'styled-components';
 import Layout from '@/components/common/Layout';
+import useCopy from '@/hooks/useCopy';
 // poseMessage 에러 로그 발생하나 youtube api 문제로 자체 해결 불가
 function VideoDetail() {
     const router = useRouter();
     const { vId, cId } = router.query;
+    const videoLists = useRecoilValue<IvideoList[]>(videoListsState);
+    console.log(videoLists, 'detail');
+    const link = videoLists[Number(cId)].videos[Number(vId)].link;
+    const { getCopy, copied, err } = useCopy(link);
     return (
         <StyledLayout>
-            {cId},{vId}
             <StyledPlayerWrapper>
                 <ReactPlayer
                     className="react-player"
-                    url="https://www.youtube.com/watch?v=W9q-0tCfvKE"
+                    url={link}
                     width="100%"
                     height="100%"
                     controls={true}
                 />
             </StyledPlayerWrapper>
+            <StyeldButton onClick={getCopy}>
+                {copied ? '복사완료' : '공유하기'}
+            </StyeldButton>
         </StyledLayout>
     );
 }
 
+const StyeldButton = styled.button`
+    all: unset;
+    cursor: pointer;
+    float: right;
+    margin: 0.625rem;
+    padding: 0.325rem 0.6rem;
+    border: 2px solid ${({ theme }) => theme.color.grey};
+    transition: border 0.2s ease-in, transform 0.2s ease-in 0.1s;
+
+    &:hover {
+        border: 2px solid ${({ theme }) => theme.color.white};
+        transform: translateY(-0.2rem);
+    }
+`;
 const StyledLayout = styled(Layout)`
     padding-top: ${({ theme }) => theme.len.tabHeight};
     display: flex;

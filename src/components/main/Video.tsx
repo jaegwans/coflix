@@ -16,10 +16,13 @@ function Video({
     c?: number;
     h?: number;
 }) {
-    const pushData = {
-        pathname: '/videoDetail',
-        query: { vId: i, cId: c },
-    };
+    const pushData = [
+        {
+            pathname: '/videoDetail',
+            query: { vId: i, cId: c },
+        },
+        'videoDetail',
+    ];
     const w = h * (4 / 3);
 
     return (
@@ -36,7 +39,7 @@ function Video({
                     width: '100%',
                     height: 'auto',
                 }}
-                onClick={() => onPush(pushData)}
+                onClick={() => onPush(...pushData)}
             />
         </StyledImageWrapper>
     );
