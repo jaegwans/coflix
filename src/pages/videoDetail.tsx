@@ -12,7 +12,7 @@ function VideoDetail() {
     const { vId, cId } = router.query;
     const videoLists = useRecoilValue<IvideoList[]>(videoListsState);
     console.log(videoLists, 'detail');
-    const link = videoLists[Number(cId)].videos[Number(vId)].link;
+    const link = videoLists[Number(cId)]?.videos[Number(vId)]?.link;
     const { getCopy, copied, err } = useCopy(link);
     return (
         <StyledLayout>

@@ -34,15 +34,20 @@ const PSWrapper = styled.div`
         display: flex;
         align-items: flex-start;
         gap: 0.3rem;
+        p {
+            color: #e4e4e4;
+        }
     }
     justify-content: space-around;
 `;
 
 const StyledFeatured = styled.div`
     cursor: pointer;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 12.5rem;
+    padding-left: 1.6rem;
+
     background-image: url('/images/ps-back.jpg');
     background-size: cover;
     width: 100%;
