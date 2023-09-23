@@ -1,15 +1,45 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import useScroll from '@/hooks/useScroll';
+import onPush from '@/hooks/onPush';
 
 function Tab() {
     const { scrollTop } = useScroll();
-    return <StyledTab paint={!scrollTop}>Tab</StyledTab>;
+    return (
+        <StyledTab paint={!scrollTop}>
+            <ul>
+                <li className="logo" onClick={() => onPush('/main')}>
+                    Coflix
+                </li>
+                <li onClick={() => onPush('/intro')}>intro</li>
+                <li onClick={() => onPush('/edit')}>edit</li>
+                <li onClick={() => onPush('/info')}>info</li>
+            </ul>
+        </StyledTab>
+    );
 }
 
 export default Tab;
 
-const StyledTab = styled.div<{ paint: boolean }>`
+const StyledTab = styled.header<{ paint: boolean }>`
+    ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-shadow: 0px 0px 15px #adadad;
+        }
+        li {
+            font-weight: 500;
+            cursor: pointer;
+        }
+    }
+
     display: flex;
     position: fixed;
     border-width: 0;
