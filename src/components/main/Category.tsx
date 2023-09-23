@@ -54,6 +54,7 @@ const StyledCategoryTitle = styled.div`
     position: absolute;
     font-size: 1.2rem;
     cursor: pointer;
+    color: #e6e6e6;
 `;
 
 const StyledCategory = styled.div`

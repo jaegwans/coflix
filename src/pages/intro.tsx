@@ -23,7 +23,7 @@ function Intro() {
 
             <div className="logoWrapper">
                 <StyledLogo data-aos="fade-in" data-aos-delay="850">
-                    FATUBE
+                    COFLIX
                 </StyledLogo>
             </div>
             <StyledHello>
