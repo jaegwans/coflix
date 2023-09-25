@@ -6,12 +6,15 @@ import Layout from '@/components/common/Layout';
 import styled from 'styled-components';
 import { Style } from '@mui/icons-material';
 import Video from '@/components/main/Video';
+import VideoMore from '../components/main/VideoMore';
+import Link from 'next/link';
 
 function CategoryDetail() {
     const router = useRouter();
     const videoLists = useRecoilValue(videoListsState);
     const keywords = useRecoilValue<string[]>(keywordsState); //추후 url 직접접근시 사용
     const [id, setid] = useState<number>(0);
+    const moreLink = `https://www.youtube.com/results?search_query=${keywords[id]}`;
     useLayoutEffect(() => {
         if (router.isReady) {
             setid(Number(router.query.id));
@@ -46,10 +49,33 @@ function CategoryDetail() {
                         }
                     )}
                 {/* {<VideoMore data={id} />} */}
+
+                <StyledVideoMore href={moreLink} target="_blank">
+                    more
+                </StyledVideoMore>
             </StyledVideos>
         </StyledLayout>
     );
 }
+
+const StyledVideoMore = styled.a`
+    all: unset;
+    width: 90%;
+    height: 70px;
+    cursor: pointer;
+    margin-bottom: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    border: 2px solid ${({ theme }) => theme.color.grey};
+    transition: border 0.2s ease-in, transform 0.2s ease-in 0.1s;
+
+    &:hover {
+        border: 2px solid ${({ theme }) => theme.color.white};
+        transform: translateY(-0.2rem);
+    }
+`;
 
 const StyledVideos = styled.div`
     display: flex;
