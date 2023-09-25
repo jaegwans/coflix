@@ -14,7 +14,7 @@ function CategoryDetail() {
     const videoLists = useRecoilValue(videoListsState);
     const keywords = useRecoilValue<string[]>(keywordsState); //추후 url 직접접근시 사용
     const [id, setid] = useState<number>(0);
-    const moreLink = `https://www.youtube.com/results?search_query=${keywords[id]}`;
+    const MORELINK = `https://www.youtube.com/results?search_query=`;
     useLayoutEffect(() => {
         if (router.isReady) {
             setid(Number(router.query.id));
@@ -50,7 +50,7 @@ function CategoryDetail() {
                     )}
                 {/* {<VideoMore data={id} />} */}
 
-                <StyledVideoMore href={moreLink} target="_blank">
+                <StyledVideoMore href={MORELINK + keywords[id]} target="_blank">
                     more
                 </StyledVideoMore>
             </StyledVideos>

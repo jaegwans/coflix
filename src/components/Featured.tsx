@@ -13,7 +13,7 @@ function Featured() {
                     <h3 className="title">오늘의 코테 문제로 이동</h3>
                     <div className="ps">
                         <h2>암호만들기</h2>
-                        <p>1759</p>
+                        <p>1759번</p>
                     </div>
                     <div>정답률:44.6%</div>
                 </PSWrapper>

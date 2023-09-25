@@ -9,7 +9,7 @@ import Waves from '@/components/Waves';
 import useDelay from '@/hooks/useDelay';
 import { useRouter } from 'next/router';
 import onPush from '@/hooks/onPush';
-import { onVisited } from '@/hooks/Visited';
+import { onVisited } from '@/hooks/visited';
 // import { m } from 'framer-motion';
 // import {
 //     defaultFadeInLeftVariants,

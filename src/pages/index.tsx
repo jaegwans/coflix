@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { isVisited } from '@/hooks/Visited';
+import { isVisited } from '@/hooks/visited';
 
 function Index() {
     const router = useRouter();

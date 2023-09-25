@@ -43,8 +43,8 @@ d-7
 -   [x] 카테고리more 웹뷰디테일
 -   [x] 로딩 처리
 -   [x] 인트로 처리
--   [ ] 인트로 에러 수정
--   [ ] 인트로 로컬 스토리지 수정
+-   [x] 인트로 에러 수정
+-   [x] 인트로 로컬 스토리지 수정
 -   [ ] recoil get 처리
 -   [ ] 렌더링 최적화(lazy,React.memo,useMemo,useCallback,useEffectInner)
 -   [ ] 선언형 에러처리,로딩처리(suspense callback)
