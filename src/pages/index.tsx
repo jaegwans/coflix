@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { isVisited } from '@/hooks/Visited';
 
 function Index() {
     const router = useRouter();
     useEffect(() => {
-        //추후 토큰을 이용한 분기처리
-        router.push('/intro');
+        if (isVisited()) router.push('/main');
+        else router.push('/intro');
     }, [router]);
     return <StyledHome />;
 }

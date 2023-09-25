@@ -9,12 +9,13 @@ import Waves from '@/components/Waves';
 import useDelay from '@/hooks/useDelay';
 import { useRouter } from 'next/router';
 import onPush from '@/hooks/onPush';
-import { m } from 'framer-motion';
-import {
-    defaultFadeInLeftVariants,
-    defaultFadeInRightVariants,
-    defaultFadeInUpVariants,
-} from '@/data/motion';
+import { onVisited } from '@/hooks/Visited';
+// import { m } from 'framer-motion';
+// import {
+//     defaultFadeInLeftVariants,
+//     defaultFadeInRightVariants,
+//     defaultFadeInUpVariants,
+// } from '@/data/motion';
 
 function Intro() {
     const [show] = useDelay(1000);
@@ -53,9 +54,7 @@ function Intro() {
                     </StyledLogo>
                 </div>
                 <StyledStartBtn
-                    onClick={() =>
-                        onPush('main', undefined, () => alert('callback'))
-                    }
+                    onClick={() => onPush('main', undefined, onVisited)}
                 >
                     시작하기
                 </StyledStartBtn>
