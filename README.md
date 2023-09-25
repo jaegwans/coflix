@@ -41,6 +41,7 @@ d-7
 월
 
 -   [x] 카테고리more 웹뷰디테일
+-   [ ] 로딩 처리
 -   [ ] 인트로 처리
 -   [ ] recoil get 처리
 -   [ ] 렌더링 최적화(lazy,React.memo,useMemo,useCallback,useEffectInner)

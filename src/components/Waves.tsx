@@ -17,7 +17,7 @@ const Styledback = styled.div`
     @media screen and (min-width: 1024px) {
         height: 80px; /* change the height of the waves here */
         width: 100%;
-        position: absolute;
+        position: fixed;
         background-color: ${({ theme }) => theme.color.background};
         bottom: 0;
         left: 0;

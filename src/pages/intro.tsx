@@ -9,6 +9,12 @@ import Waves from '@/components/Waves';
 import useDelay from '@/hooks/useDelay';
 import { useRouter } from 'next/router';
 import onPush from '@/hooks/onPush';
+import { m } from 'framer-motion';
+import {
+    defaultFadeInLeftVariants,
+    defaultFadeInRightVariants,
+    defaultFadeInUpVariants,
+} from '@/data/motion';
 
 function Intro() {
     const [show] = useDelay(1000);
@@ -21,18 +27,35 @@ function Intro() {
             <Waves />
             <StyledBlind />
 
-            <div className="logoWrapper">
-                <StyledLogo data-aos="fade-in" data-aos-delay="850">
-                    COFLIX
-                </StyledLogo>
-            </div>
             <StyledHello>
                 {show && <LottieWrapper lottieData={hello} />}
             </StyledHello>
+            <div className="info">
+                <div data-aos="fade-right" data-aos-delay="850">
+                    오늘의 추천 코딩테스트 문제와
+                </div>
 
-            <StyledStartBtn onClick={() => onPush('main')}>
-                시작하기
-            </StyledStartBtn>
+                <div
+                    className="right"
+                    data-aos="fade-left"
+                    data-aos-delay="950"
+                >
+                    개발에 도움이 될 수 있는 영상을 제공합니다.
+                </div>
+            </div>
+
+            <div></div>
+            <div className="bottom">
+                <h3>개발자 취업을 위한 </h3>
+                <div className="logoWrapper">
+                    <StyledLogo data-aos="fade-in" data-aos-delay="850">
+                        COFLIX
+                    </StyledLogo>
+                </div>
+                <StyledStartBtn onClick={() => onPush('main')}>
+                    시작하기
+                </StyledStartBtn>
+            </div>
         </StyledIntro>
     );
 }
@@ -72,6 +95,7 @@ const StyledLogo = styled.div`
     font-weight: 700;
 `;
 const StyledStartBtn = styled.button`
+    margin-top: 1rem;
     cursor: pointer;
     margin-bottom: 1.875rem;
     border: 0.0938rem solid ${({ theme }) => theme.color.grey};
@@ -90,6 +114,25 @@ const StyledStartBtn = styled.button`
 `;
 
 const StyledIntro = styled.div`
+    .bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 4rem;
+    }
+    .info {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        height: 300px;
+        flex-direction: column;
+        font-size: 1.2rem;
+        .right {
+            align-self: flex-end;
+        }
+        gap: 2rem;
+    }
     .logoWrapper {
         @media screen and (max-width: 768px) {
             animation-duration: 1s;
@@ -111,7 +154,7 @@ const StyledIntro = styled.div`
     }
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 100vh;
     width: 100%;
