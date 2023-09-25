@@ -52,7 +52,11 @@ function Intro() {
                         COFLIX
                     </StyledLogo>
                 </div>
-                <StyledStartBtn onClick={() => onPush('main')}>
+                <StyledStartBtn
+                    onClick={() =>
+                        onPush('main', undefined, () => alert('callback'))
+                    }
+                >
                     시작하기
                 </StyledStartBtn>
             </div>
@@ -122,8 +126,10 @@ const StyledIntro = styled.div`
         margin-bottom: 4rem;
     }
     .info {
-        width: 90%;
+        overflow: hidden;
+        width: 100%;
         display: flex;
+        padding: 1.5rem;
         justify-content: center;
         height: 300px;
         flex-direction: column;
