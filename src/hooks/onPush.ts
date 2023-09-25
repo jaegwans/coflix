@@ -1,11 +1,14 @@
 import Router from 'next/router';
 
-function onPush(path: string | Object, asPath?: string, callback?: () => void) {
-    //추후 개선 필요 (객체로 받을것)
-    if (typeof path === 'object') {
-        Router.push(path, asPath).then(() => callback && callback());
-    } else {
-        Router.push(path).then(() => callback && callback());
+function onPush(...urls: any) {
+    if (urls.length === 1) {
+        Router.push(urls[0]);
+    } else if (urls.length === 2) {
+        if (typeof urls[1] === 'function') {
+            Router.push(urls[0]).then(urls[1]());
+        } else {
+            Router.push(urls[0], urls[1]);
+        }
     }
 }
 

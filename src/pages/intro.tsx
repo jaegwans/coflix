@@ -9,7 +9,7 @@ import Waves from '@/components/Waves';
 import useDelay from '@/hooks/useDelay';
 import { useRouter } from 'next/router';
 import onPush from '@/hooks/onPush';
-import { onVisited } from '@/hooks/visited';
+import { onVisited } from '@/hooks/useVisited';
 // import { m } from 'framer-motion';
 // import {
 //     defaultFadeInLeftVariants,
@@ -53,9 +53,7 @@ function Intro() {
                         COFLIX
                     </StyledLogo>
                 </div>
-                <StyledStartBtn
-                    onClick={() => onPush('main', undefined, onVisited)}
-                >
+                <StyledStartBtn onClick={() => onPush('main', onVisited)}>
                     시작하기
                 </StyledStartBtn>
             </div>
