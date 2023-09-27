@@ -13,7 +13,7 @@ function Tab() {
                 </li>
                 <li onClick={() => onPush('/intro')}>intro</li>
                 <li onClick={() => onPush('/edit')}>edit</li>
-                <li onClick={() => onPush('/info')}>info</li>
+                <li onClick={() => alert('준비중입니다.')}>info</li>
             </ul>
         </StyledTab>
     );
