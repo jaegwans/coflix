@@ -8,7 +8,7 @@ import keywords from '@/data/Search/keywords.json';
 function Main() {
     const { getLocalStorage } = useLocalStorage();
     useEffect(() => {
-        const data = getLocalStorage('caterory') || keywords;
+        const data = getLocalStorage('category') || keywords;
 
         document.cookie = `myData=${encodeURIComponent(
             JSON.stringify(data)

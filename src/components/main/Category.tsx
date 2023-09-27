@@ -21,7 +21,7 @@ function Category({
     const [keywords, setKeywords] = useState<string[]>([]);
 
     useEffect(() => {
-        const init = getLocalStorage('caterory') || initkeywords;
+        const init = getLocalStorage('category') || initkeywords;
         setKeywords(init);
     }, []);
 

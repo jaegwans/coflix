@@ -15,7 +15,7 @@ function Edit() {
     const { handleChange } = useKeywords(keywords, setKeywords);
 
     useLayoutEffect(() => {
-        const init = getLocalStorage('caterory') || initKeywords;
+        const init = getLocalStorage('category') || initKeywords;
         setKeywords(init);
     }, []);
 
@@ -24,7 +24,7 @@ function Edit() {
             // handle empty keyword case
             alert('키워드는 공백으로 두지 마세요.');
         } else {
-            onPush('/main', setLocalStorage('caterory', keywords));
+            onPush('/main', setLocalStorage('category', keywords));
         }
     }
 
@@ -49,7 +49,7 @@ function Edit() {
                         <StyeldButton
                             type="button"
                             onClick={() => {
-                                setLocalStorage('caterory', initKeywords);
+                                setLocalStorage('category', initKeywords);
                                 setKeywords(initKeywords);
                             }}
                         >
