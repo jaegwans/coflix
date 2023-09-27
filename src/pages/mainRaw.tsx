@@ -13,10 +13,10 @@ import keywords from '@/data/Search/keywords.json';
 import Layout from '@/components/common/Layout';
 
 export const getServerSideProps: GetServerSideProps = async ({ res, req }) => {
-    res.setHeader(
-        'Cache-Control',
-        'public, max-age=1800, s-maxage=3600, stale-while-revalidate=59'
-    );
+    // res.setHeader(
+    //     'Cache-Control',
+    //     'public, max-age=1800, s-maxage=3600, stale-while-revalidate=59'
+    // );
     const cookies = req.headers.cookie;
     const myDataCookie = cookies
         ?.split('; ')
