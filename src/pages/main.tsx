@@ -14,7 +14,7 @@ function Main() {
             JSON.stringify(data)
         )}; path=/; secure; samesite=strict`;
 
-        onPush('/mainRaw');
+        onPush('/mainRaw', '/main');
     }, []);
 
     return (
