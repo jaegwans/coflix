@@ -12,13 +12,21 @@ import getVideoList from '@/hooks/api/getVideoLists';
 import keywords from '@/data/Search/keywords.json';
 import Layout from '@/components/common/Layout';
 
-export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+export const getServerSideProps: GetServerSideProps = async ({ res, req }) => {
     res.setHeader(
         'Cache-Control',
         'public, max-age=1800, s-maxage=3600, stale-while-revalidate=59'
     );
+    const cookies = req.headers.cookie;
+    const myDataCookie = cookies
+        ?.split('; ')
+        .find((row) => row.startsWith('myData='));
+    const data = myDataCookie
+        ? JSON.parse(decodeURIComponent(myDataCookie.split('=')[1]))
+        : null;
+
     try {
-        const videoLists = await getVideoList();
+        const videoLists = await getVideoList(data || keywords);
 
         return {
             props: {
@@ -49,6 +57,7 @@ function MainRaw({
     useEffect(() => {
         setGlobalVideoList(videoLists);
         setGlobalKeywords(keywords);
+        console.log(videoLists);
     }, [videoLists, setGlobalVideoList, setGlobalKeywords]);
 
     if (router.isFallback) {
@@ -58,6 +67,7 @@ function MainRaw({
         <StyledLayout>
             <Tab />
             <Featured />
+
             {videoLists.map(
                 (
                     videoList: { videos: Ivideo[] },

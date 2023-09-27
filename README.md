@@ -1,6 +1,6 @@
 # demo
 
-[https://fatube.jaegwan.com](https://fatube.jaegwan.com)
+[https://coflix.jaegwan.com](https://coflix.jaegwan.com)
 
 ## TODO
 
@@ -45,14 +45,15 @@ d-7
 -   [x] 인트로 처리
 -   [x] 인트로 에러 수정
 -   [x] 인트로 로컬 스토리지 수정
--   [ ] recoil get 처리
--   [ ] 렌더링 최적화(lazy,React.memo,useMemo,useCallback,useEffectInner)
--   [ ] 선언형 에러처리,로딩처리(suspense callback)
 
 화
 
+-   [ ] 편집 레이아웃
+-   [ ] recoil get 처리
 -   [ ] 검색어 편집 구현
 -   [ ] 프로젝트 이름 변경
+-   [ ] 렌더링 최적화(lazy,React.memo,useMemo,useCallback,useEffectInner)
+-   [ ] 선언형 에러처리,로딩처리(suspense callback)
 -   [ ] 배포
 -   [ ] 영상촬영
 -   [ ] GA 붙이기

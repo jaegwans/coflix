@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Video from './Video';
-import keywords from '@/data/Search/keywords.json';
+import initkeywords from '@/data/Search/keywords.json';
 import { isNumber } from '@/hooks/type/guard';
 import Image from 'next/image';
 import VideoMore from './VideoMore';
 import onPush from '@/hooks/onPush';
-
+import { useRecoilState } from 'recoil';
+import { videoListsState } from '@/atoms/youtube';
+import useLocalStorage from '@/hooks/useLocalStorage';
 function Category({
     videos,
     id,
@@ -15,13 +17,26 @@ function Category({
     id: React.Key | null | undefined;
 }) {
     // null 값에 대한 예외 처리 필요 서스펜스와 에러처리로
+    const { getLocalStorage } = useLocalStorage();
+    const [keywords, setKeywords] = useState<string[]>([]);
+
+    useEffect(() => {
+        const init = getLocalStorage('caterory') || initkeywords;
+        setKeywords(init);
+    }, []);
+
+    if (typeof id !== 'number') {
+        console.error('id must be a number');
+        return;
+    }
+
     return (
         <StyledCategory>
             <StyledCategoryTitle
                 onClick={() =>
                     onPush({
                         pathname: '/categoryDetail',
-                        query: { id: id },
+                        query: { id: id, cName: keywords[id] },
                     })
                 }
             >

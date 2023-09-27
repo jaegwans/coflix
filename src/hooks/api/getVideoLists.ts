@@ -1,7 +1,6 @@
-import keywords from '@/data/Search/keywords.json';
 import { youtube } from 'scrape-youtube';
 
-async function getVideoList() {
+async function getVideoList(keywords: string[]) {
     const videoLists = await Promise.all(
         keywords.map((keyword) => youtube.search(keyword))
     );

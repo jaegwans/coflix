@@ -3,8 +3,17 @@ import onPush from '@/hooks/onPush';
 import LottieWrapper from '@/components/common/LottieWrapper';
 import loading from '@/assets/lottie/loading.json';
 import styled from 'styled-components';
+import useLocalStorage from '@/hooks/useLocalStorage';
 function Main() {
+    const { getLocalStorage } = useLocalStorage();
     useEffect(() => {
+        const data = getLocalStorage('caterory') || { now: '1' };
+
+        document.cookie = `myData=${encodeURIComponent(
+            // 쿠키에 등록
+            JSON.stringify(data)
+        )}; path=/`;
+
         onPush('/mainRaw', '/main');
     }, []);
 

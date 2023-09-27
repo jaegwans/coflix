@@ -12,7 +12,8 @@ import Link from 'next/link';
 function CategoryDetail() {
     const router = useRouter();
     const videoLists = useRecoilValue(videoListsState);
-    const keywords = useRecoilValue<string[]>(keywordsState); //추후 url 직접접근시 사용
+    // const keywords = useRecoilValue<string[]>(keywordsState); //추후 url 직접접근시 사용
+    const [categoryName, setcategoryName] = useState(router.query.cName);
     const [id, setid] = useState<number>(0);
     const MORELINK = `https://www.youtube.com/results?search_query=`;
     useLayoutEffect(() => {
@@ -31,7 +32,7 @@ function CategoryDetail() {
 
     return (
         <StyledLayout>
-            <StyledCategoryTitle>{keywords[id]}</StyledCategoryTitle>
+            <StyledCategoryTitle>{categoryName}</StyledCategoryTitle>
             <StyledVideos>
                 {videoLists != undefined &&
                     (videoLists[id] as IvideoList)?.videos?.map(
@@ -50,7 +51,7 @@ function CategoryDetail() {
                     )}
                 {/* {<VideoMore data={id} />} */}
 
-                <StyledVideoMore href={MORELINK + keywords[id]} target="_blank">
+                <StyledVideoMore href={MORELINK + categoryName} target="_blank">
                     more
                 </StyledVideoMore>
             </StyledVideos>
