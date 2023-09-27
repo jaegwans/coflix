@@ -10,9 +10,8 @@ function Main() {
         const data = getLocalStorage('caterory') || { now: '1' };
 
         document.cookie = `myData=${encodeURIComponent(
-            // 쿠키에 등록
             JSON.stringify(data)
-        )}; path=/`;
+        )}; path=/; secure; samesite=strict`;
 
         onPush('/mainRaw', '/main');
     }, []);
