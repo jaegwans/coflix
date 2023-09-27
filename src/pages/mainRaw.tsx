@@ -37,7 +37,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res, req }) => {
         console.log(error);
         return {
             props: {
-                videoLists: {},
+                videoLists: [],
             },
         };
     }
