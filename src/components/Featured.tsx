@@ -3,22 +3,20 @@ import styled from 'styled-components';
 
 function Featured() {
     return (
-        <a
+        <StyledFeatured
             href="https://www.acmicpc.net/problem/1759"
             target="_blank"
             rel="noopener noreferrer"
         >
-            <StyledFeatured>
-                <PSWrapper>
-                    <h3 className="title">오늘의 코테 문제로 이동</h3>
-                    <div className="ps">
-                        <h2>암호만들기</h2>
-                        <p>1759번</p>
-                    </div>
-                    <div>정답률:44.6%</div>
-                </PSWrapper>
-            </StyledFeatured>
-        </a>
+            <PSWrapper>
+                <h3 className="title">오늘의 코테 문제로 이동</h3>
+                <div className="ps">
+                    <h2>암호만들기2</h2>
+                    <p>1759번</p>
+                </div>
+                <div>정답률:44.6%</div>
+            </PSWrapper>
+        </StyledFeatured>
     );
 }
 
@@ -41,7 +39,7 @@ const PSWrapper = styled.div`
     justify-content: space-around;
 `;
 
-const StyledFeatured = styled.div`
+const StyledFeatured = styled.a`
     cursor: pointer;
     justify-content: flex-start;
     align-items: center;
@@ -49,7 +47,7 @@ const StyledFeatured = styled.div`
     padding-left: 1.6rem;
     padding-bottom: 0.5rem;
 
-    background-image: url('/images/ps-back.jpg');
+    background-image: url('/images/ps-back.png');
     background-size: cover;
     width: 100%;
     display: flex;
