@@ -37,7 +37,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res, req }) => {
         console.log(error);
         return {
             props: {
-                videoLists: false,
+                videoLists: {},
             },
         };
     }
@@ -60,9 +60,6 @@ function MainRaw({
         console.log(videoLists);
     }, [videoLists, setGlobalVideoList, setGlobalKeywords]);
 
-    if (router.isFallback) {
-        return <p>로딩중</p>;
-    }
     return (
         <StyledLayout>
             <Tab />
