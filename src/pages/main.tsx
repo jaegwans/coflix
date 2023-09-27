@@ -4,16 +4,17 @@ import LottieWrapper from '@/components/common/LottieWrapper';
 import loading from '@/assets/lottie/loading.json';
 import styled from 'styled-components';
 import useLocalStorage from '@/hooks/useLocalStorage';
+import keywords from '@/data/Search/keywords.json';
 function Main() {
     const { getLocalStorage } = useLocalStorage();
     useEffect(() => {
-        const data = getLocalStorage('caterory') || { now: '1' };
+        const data = getLocalStorage('caterory') || keywords;
 
         document.cookie = `myData=${encodeURIComponent(
             JSON.stringify(data)
         )}; path=/; secure; samesite=strict`;
 
-        onPush('/mainRaw', '/main');
+        onPush('/mainRaw');
     }, []);
 
     return (
