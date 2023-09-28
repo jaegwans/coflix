@@ -92,8 +92,9 @@ const StyledCategoryTitle = styled.div`
 const StyledLayout = styled(Layout)`
     display: flex;
     padding-top: 4.375rem;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
     position: relative;
 `;
 

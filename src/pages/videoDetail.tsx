@@ -38,6 +38,9 @@ const StyeldButton = styled.button`
     float: right;
     margin: 0.625rem;
     padding: 0.325rem 0.6rem;
+    width: 3.75rem;
+    text-align: center;
+    align-self: flex-end;
     border: 2px solid ${({ theme }) => theme.color.grey};
     transition: border 0.2s ease-in, transform 0.2s ease-in 0.1s;
 
@@ -49,8 +52,8 @@ const StyeldButton = styled.button`
 const StyledLayout = styled(Layout)`
     padding-top: ${({ theme }) => theme.len.tabHeight};
     display: flex;
-    justify-content: center;
-    align-items: center;
+
+    flex-direction: column;
 `;
 
 const StyledPlayerWrapper = styled.div`

@@ -9,9 +9,11 @@ function Layout({
     className?: string;
 }) {
     return (
-        <StyeldLayoutWrapper className={className}>
+        <StyeldLayoutWrapper>
             <Tab />
-            <StyledLayoutInnerWrapper>{children}</StyledLayoutInnerWrapper>
+            <StyledLayoutInnerWrapper className={className}>
+                {children}
+            </StyledLayoutInnerWrapper>
         </StyeldLayoutWrapper>
     );
 }
