@@ -55,7 +55,7 @@ function Resume({
 export default Resume;
 
 const StyledResumes = styled.div`
-    width: 90%;
+    width: 95%;
     height: 100%;
 `;
 const StyledLayout = styled(Layout)`
