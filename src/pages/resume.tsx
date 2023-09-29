@@ -55,14 +55,19 @@ function Resume({
 export default Resume;
 
 const StyledResumes = styled.div`
+    display: grid;
     width: 95%;
     height: 100%;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    gap: 1rem 0rem;
 `;
 const StyledLayout = styled(Layout)`
     h1 {
         align-self: flex-start;
-        margin-left: 5%;
-        margin-top: 1.5rem;
+
+        margin: 1.5rem 0rem 1.5rem 5%;
     }
     position: relative;
     padding-top: ${({ theme }) => theme.len.tabHeight};

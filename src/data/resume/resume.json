@@ -10,23 +10,28 @@
         "position": "backend"
     },
     {
-        "name": "워니",
-        "url": "https://wonny-log.notion.site/Wonny-c2f8051bfb574f349406a30d2bc71a45",
+        "name": "김평범",
+        "url": "https://purple-drop-d34.notion.site/Ordinary-Code-babb21475b004fdeb481b5e465cb8fa5",
         "position": "frontend"
     },
     {
-        "name": "익명",
-        "url": "https://github.com/f-lab-edu/graduate-resume/blob/main/1_F-Lab_%E1%84%89%E1%85%AE%E1%84%85%E1%85%AD%E1%84%89%E1%85%A2%E1%86%BC_%E1%84%8F%E1%85%A1%E1%84%8F%E1%85%A1%E1%84%8B%E1%85%A9%E1%84%92%E1%85%A1%E1%86%B8%E1%84%80%E1%85%A7%E1%86%A8%E1%84%8C%E1%85%A1_%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A7%E1%86%A8%E1%84%89%E1%85%A5.pdf",
-        "position": "All"
+        "name": "이현섭",
+        "url": "https://hyunseob.github.io/resume/",
+        "position": "frontend"
     },
     {
-        "name": "워니",
-        "url": "https://wonny-log.notion.site/Wonny-c2f8051bfb574f349406a30d2bc71a45",
-        "position": "All"
+        "name": "한재엽",
+        "url": "https://jbee.io/about/",
+        "position": "frontend"
     },
     {
-        "name": "익명",
-        "url": "https://github.com/f-lab-edu/graduate-resume/blob/main/1_F-Lab_%E1%84%89%E1%85%AE%E1%84%85%E1%85%AD%E1%84%89%E1%85%A2%E1%86%BC_%E1%84%8F%E1%85%A1%E1%84%8F%E1%85%A1%E1%84%8B%E1%85%A9%E1%84%92%E1%85%A1%E1%86%B8%E1%84%80%E1%85%A7%E1%86%A8%E1%84%8C%E1%85%A1_%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A7%E1%86%A8%E1%84%89%E1%85%A5.pdf",
-        "position": "All"
+        "name": "우용우",
+        "url": "https://resume.yowu.dev/",
+        "position": "backend"
+    },
+    {
+        "name": "이동욱",
+        "url": "https://jojoldu.github.io/",
+        "position": "backend"
     }
 ]

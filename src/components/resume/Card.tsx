@@ -18,6 +18,9 @@ function Card({ data }: { data: ICard }) {
                         width={300}
                         height={300}
                         alt={data.name}
+                        onError={(e) =>
+                            (e.currentTarget.style.display = 'none')
+                        }
                     />
                     {/**화이트리스트 문제로 img 사용**/}
                 </StyledPreview>
