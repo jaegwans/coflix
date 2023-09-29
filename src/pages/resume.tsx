@@ -5,6 +5,7 @@ import Card from '@/components/resume/Card';
 import resume from '@/data/resume/resume.json';
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next';
 import getOg from '@/hooks/api/getOg';
+import { ServerResponse } from 'http';
 
 interface IResumes {
     url: string;
@@ -19,9 +20,12 @@ async function addPreview(object: IResumes) {
     return Object.assign(object, { preview: og.image.url });
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ res }: { res: ServerResponse }) {
     //image 안에 url 있음
-
+    res.setHeader(
+        'Cache-Control',
+        'public, s-maxage=10, stale-while-revalidate=59'
+    );
     const newResumes = await Promise.all(
         resume.map((object) => {
             return addPreview(object);
