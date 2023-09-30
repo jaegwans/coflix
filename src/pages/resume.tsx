@@ -63,6 +63,12 @@ const StyledResumes = styled.div`
     width: 95%;
     height: 100%;
     grid-template-columns: 1fr 1fr;
+    @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media (min-width: 1024px) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
     justify-items: center;
     align-items: center;
     gap: 1rem 0rem;
