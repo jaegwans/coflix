@@ -1,20 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function Featured() {
+function Featured({ bj }: { bj: any }) {
+    const url = `https://www.acmicpc.net/problem/${bj.id}`;
     return (
-        <StyledFeatured
-            href="https://www.acmicpc.net/problem/1759"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
+        <StyledFeatured href={url} target="_blank" rel="noopener noreferrer">
             <PSWrapper>
                 <h3 className="title">오늘의 코테 문제로 이동</h3>
                 <div className="ps">
-                    <h2>암호만들기</h2>
-                    <p>1759번</p>
+                    <h2>{bj.title}</h2>
+                    <p>{bj.id}번</p>
                 </div>
-                <div>정답률:44.6%</div>
+                <div>정답률:{bj.rate}</div>
             </PSWrapper>
         </StyledFeatured>
     );

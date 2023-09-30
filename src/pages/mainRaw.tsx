@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Category from '@/components/main/Category';
 import Featured from '@/components/Featured';
 import Tab from '@/components/common/Tab';
-import axios from 'axios';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
@@ -11,16 +10,19 @@ import { videoListsState, keywordsState } from '@/atoms/youtube';
 import getVideoList from '@/hooks/api/getVideoLists';
 import keywords from '@/data/Search/keywords.json';
 import Layout from '@/components/common/Layout';
+import getBj from '@/hooks/api/getBj';
 
 export const getServerSideProps: GetServerSideProps = async ({ res, req }) => {
     // res.setHeader(
     //     'Cache-Control',
     //     'public, max-age=1800, s-maxage=3600, stale-while-revalidate=59'
     // );
+    const bj = await getBj();
     const cookies = req.headers.cookie;
     const myDataCookie = cookies
         ?.split('; ')
         .find((row) => row.startsWith('myData='));
+
     const data = myDataCookie
         ? JSON.parse(decodeURIComponent(myDataCookie.split('=')[1]))
         : null;
@@ -31,12 +33,14 @@ export const getServerSideProps: GetServerSideProps = async ({ res, req }) => {
         return {
             props: {
                 videoLists,
+                bj: bj,
             },
         };
     } catch (error) {
         return {
             props: {
                 videoLists: [error],
+                bj: null,
             },
         };
     }
@@ -44,8 +48,8 @@ export const getServerSideProps: GetServerSideProps = async ({ res, req }) => {
 
 function MainRaw({
     videoLists,
+    bj,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-    console.log(videoLists);
     const router = useRouter();
 
     const [globalVideoLists, setGlobalVideoList] =
@@ -56,13 +60,13 @@ function MainRaw({
     useEffect(() => {
         setGlobalVideoList(videoLists);
         setGlobalKeywords(keywords);
-        console.log(videoLists);
+        console.log(bj);
     }, [videoLists, setGlobalVideoList, setGlobalKeywords]);
 
     return (
         <StyledLayout>
             <Tab />
-            <Featured />
+            <Featured bj={bj} />
 
             {videoLists.map(
                 (
