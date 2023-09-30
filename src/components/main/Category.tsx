@@ -53,7 +53,7 @@ function Category({
     );
 }
 
-export default Category;
+export default React.memo(Category); //videos
 
 const StyeldVideos = styled.div`
     margin-top: 4rem;

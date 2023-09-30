@@ -64,4 +64,4 @@ const StyledVideoTitle = styled.div`
     background-color: rgba(0, 0, 0, 0.5);
 `;
 
-export default Video;
+export default React.memo(Video);
