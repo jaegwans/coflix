@@ -122,6 +122,7 @@ const StyledIntro = styled.div`
         align-items: center;
         margin-bottom: 4rem;
     }
+
     .info {
         overflow: hidden;
         width: 100%;
@@ -135,6 +136,17 @@ const StyledIntro = styled.div`
             align-self: flex-end;
         }
         gap: 2rem;
+        @media screen and (min-width: 768px) {
+            height: 100%;
+            width: 25rem;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            font-size: 1.2rem;
+            .right {
+                align-self: flex-end;
+            }
+        }
     }
     .logoWrapper {
         @media screen and (max-width: 768px) {
