@@ -39,6 +39,11 @@ async function getBj() {
         }
     } catch (error) {
         console.error('Error fetching data:', error);
+        return {
+            id: 20426,
+            title: '아침은 고구마야',
+            rate: '72.222%',
+        };
     }
     return null; // 추가된 부분
 }
