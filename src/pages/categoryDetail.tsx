@@ -20,8 +20,6 @@ function CategoryDetail() {
         if (router.isReady) {
             setid(Number(router.query.id));
 
-            console.log(videoLists[Number(router.query.id)]);
-
             if (router.query.id === undefined) {
                 // url 직접접근시
                 alert('잘못된 접근입니다.'); //임시로 처리,경진대회 이후 키워드접근으로 수정

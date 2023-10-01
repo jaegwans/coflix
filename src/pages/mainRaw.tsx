@@ -60,7 +60,6 @@ function MainRaw({
     useEffect(() => {
         setGlobalVideoList(videoLists);
         setGlobalKeywords(keywords);
-        console.log(bj);
     }, [videoLists, setGlobalVideoList, setGlobalKeywords]);
 
     return (
