@@ -1,78 +1,21 @@
-# demo
+# 아키텍쳐
+![image](https://github.com/jaegwans/coflix/assets/50818389/058683d4-6721-4839-aa55-cfc1262e2a32)
 
+### 배포
 [https://coflix.jaegwan.com](https://coflix.jaegwan.com)
 
-## TODO
+## Preview
+![image](https://github.com/jaegwans/coflix/assets/50818389/b065a1ef-f899-4dbc-87e6-eb9e9f6fb96c) ![image](https://github.com/jaegwans/coflix/assets/50818389/4218028e-215d-484f-ada3-b8c2b9d8f2fc) ![image](https://github.com/jaegwans/coflix/assets/50818389/dd375df6-1745-454e-a39b-be7855e59fe9) 
+![image](https://github.com/jaegwans/coflix/assets/50818389/056e20a0-94a6-4cee-95ad-36d8645362e0) ![image](https://github.com/jaegwans/coflix/assets/50818389/e76c2b9f-2652-488a-9331-60d2f5c0cdf6) ![image](https://github.com/jaegwans/coflix/assets/50818389/96d17596-c9f1-4d09-90aa-72a736b214f6)
 
-27일까지
+## Tech
+![image](https://github.com/jaegwans/coflix/assets/50818389/5509c4d7-a399-4c9d-9374-60d126a8f3e1)
 
-d-11
 
--   [x] youtube api 연결
--   [x] youtube api - recoil 연결
 
-d-9
 
--   [x] api 함수로 빼기
--   [x] npm 해결
 
-d-8
 
--   [x] 모바일 레이아웃
--   [x] 배포 테스트 - vercel
 
-d-7
 
--   [x] 모바일 레이아웃
--   [x] 카테고리 별 페이지 데이터 세팅
--   [x] 카테고리 디테일 동적라우팅 적용
 
-금
-
--   [x] 접속라우팅 경우만 우선 적용(id,cTitle값 받고) 리코일 이용
--   [x] 카테고리 디테일 페이지 레이아웃 완성 모바일
--   [x] 비디오 디테일 페이지 모바일
-
-토
-
--   [x] 피쳐드 컴포넌트 완성(코테)
--   [x] 탭 완성
-
-월
-
--   [x] 카테고리more 웹뷰디테일
--   [x] 로딩 처리
--   [x] 인트로 처리
--   [x] 인트로 에러 수정
--   [x] 인트로 로컬 스토리지 수정
-
-화
-
--   [ ] 편집 레이아웃
--   [ ] recoil get 처리
--   [ ] 검색어 편집 구현
--   [ ] 프로젝트 이름 변경
--   [ ] 렌더링 최적화(lazy,React.memo,useMemo,useCallback,useEffectInner)
--   [ ] 선언형 에러처리,로딩처리(suspense callback)
--   [ ] 배포
--   [ ] 영상촬영
--   [ ] GA 붙이기
-
-수
-
--   [ ] 영상촬영
--   [ ] aws s3 배포
-
----
-
--   [ ] 포크 for fatube
--   [ ] 계절별
--   [ ] 성별 토글 구현
-
--   [ ] Motion 환경 세팅
--   [ ] 모바일 인트로 페이지
--   [ ] pc 인트로 페이지
-
--   [ ] pc 레이아웃
--   [ ] 비디오 디테일 페이지 pc
--   [ ] 카테고리 디테일 페이지 pc
