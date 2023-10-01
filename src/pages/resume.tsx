@@ -4,20 +4,14 @@ import Layout from '@/components/common/Layout';
 import Card from '@/components/resume/Card';
 import resume from '@/data/resume/resume.json';
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next';
-import getOg from '@/hooks/api/getOg';
 import { ServerResponse } from 'http';
+import addPreview from '@/hooks/addPreview';
 
 interface IResumes {
     url: string;
     name: string;
     position: string;
     imgSrc?: string;
-}
-
-async function addPreview(object: IResumes) {
-    const og = await getOg(object.url);
-
-    return Object.assign(object, { preview: og.image.url });
 }
 
 export async function getServerSideProps({ res }: { res: ServerResponse }) {
@@ -43,7 +37,7 @@ function Resume({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
     useEffect(() => {
         console.log(resumes);
-    }, [resumes]);
+    }, []);
     return (
         <StyledLayout>
             <h1>resume</h1>
