@@ -11,7 +11,9 @@ function VideoDetail() {
     const router = useRouter();
     const { vId, cId } = router.query;
     const videoLists = useRecoilValue<IvideoList[]>(videoListsState);
-
+    console.log(
+        '유투브 자체의 오리진 문제로 에러 로그가 송출됩니다.(유투브단 문제)'
+    );
     const link = videoLists[Number(cId)]?.videos[Number(vId)]?.link;
     const { getCopy, copied, err } = useCopy(link);
     return (
