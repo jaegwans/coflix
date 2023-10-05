@@ -42,9 +42,9 @@ function Edit() {
                             onChange={handleChange}
                         />
                     ))}
-                    <StyeldMore type="button">
+                    {/* <StyeldMore type="button">
                         <AddIcon />
-                    </StyeldMore>
+                    </StyeldMore> */}
                     <StyledButtonWrapper>
                         <StyeldButton
                             type="button"
