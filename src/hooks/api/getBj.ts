@@ -29,7 +29,6 @@ async function getBj() {
 
             // 여기에 다른 데이터를 파싱하는 코드를 추가할 수 있습니다.
 
-            console.log('Title:', title);
             return {
                 id: num,
                 title: title,
