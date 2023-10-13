@@ -7,6 +7,7 @@ import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import React from 'react';
 import { RecoilEnv } from 'recoil';
+import HeadMeta from '@/components/common/HeadMeta';
 
 RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
 
@@ -18,6 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 <QueryClientProvider client={queryClient}>
                     <Hydrate state={pageProps.dehydratedState}>
                         <RecoilRoot>
+                            <HeadMeta />
                             <GlobalStyle />
                             <Component {...pageProps} />
                         </RecoilRoot>
