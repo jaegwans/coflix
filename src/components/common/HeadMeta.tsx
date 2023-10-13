@@ -15,6 +15,10 @@ function HeadMeta({ title, description, url }: IHeadMetaProps) {
                 name="viewport"
                 content="initial-scale=1.0, width=device-width"
             />
+            <meta
+                name="keyword"
+                content="프로그래밍, 코딩, 개발자, 취준생, 취업"
+            />
             <meta property="og:title" content={title || 'coflix'} />
             <meta property="og:type" content="website" />
             <meta
