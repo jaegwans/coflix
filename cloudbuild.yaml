@@ -5,9 +5,19 @@ steps:
     - name: 'gcr.io/cloud-builders/npm'
       args: ['run', 'build']
 
-    # 2. Cloud Functions 배포 단계
-    - name: 'gcr.io/cloud-builders/gcloud'
-      args: ['deploy', 'my-function', '--runtime=nodejs18', '--trigger-http']
+    # 2. Docker 이미지 빌드 단계
+    - name: 'gcr.io/cloud-builders/docker'
+      args: ['build', '-t', 'gcr.io/coflix-402007/my-app', '.']
 
-# 이미지 빌드와 배포를 위한 설정
-images: ['gcr.io/coflix-402007/helloworld']
+    # 3. Google Cloud Run 배포 단계
+    - name: 'gcr.io/cloud-builders/gcloud'
+      args:
+          - 'run'
+          - 'deploy'
+          - 'my-app'
+          - '--image=gcr.io/coflix-402007/my-app'
+          - '--platform=managed'
+          - '--region=asia-northeast3' # 원하는 지역 설정
+          - '--allow-unauthenticated' # 필요한 경우 인증 생략
+
+images: ['gcr.io/coflix-402007/my-app']
