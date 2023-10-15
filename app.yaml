@@ -1,0 +1,6 @@
+runtime: nodejs18
+
+env_variables:
+    PORT: '8080' # 포트 번호를 여기에 설정합니다.
+
+instance_class: B2
