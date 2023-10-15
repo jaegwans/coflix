@@ -1,0 +1,20 @@
+steps:
+    # 1. Node.js 애플리케이션 빌드 단계
+    - name: 'gcr.io/cloud-builders/npm'
+      args: ['install']
+    - name: 'gcr.io/cloud-builders/npm'
+      args: ['run', 'build']
+
+    # 2. Cloud Functions 배포 단계
+    - name: 'gcr.io/cloud-builders/gcloud'
+      args:
+          [
+              'functions',
+              'deploy',
+              'my-function',
+              '--runtime=nodejs14',
+              '--trigger-http',
+          ]
+
+# 이미지 빌드와 배포를 위한 설정
+images: ['gcr.io/coflix-402007/helloworld']
