@@ -20,7 +20,7 @@ function Main() {
     return (
         <StyledLoading>
             <LottieWrapper lottieData={loading} />
-            <p>영상 정보를 미리 로드하고 있습니다.</p>
+            <p>영상 정보를 미리 로드하고 있습니다.test</p>
         </StyledLoading>
     );
 }
