@@ -40,7 +40,7 @@ const StyeldButton = styled.button`
     float: right;
     margin: 0.625rem;
     padding: 0.325rem 0.6rem;
-    width: 3.75rem;
+    width: wrap-content;
     text-align: center;
     align-self: flex-end;
     border: 2px solid ${({ theme }) => theme.color.grey};
