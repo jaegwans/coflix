@@ -3,7 +3,11 @@ import styled from 'styled-components';
 import Layout from '@/components/common/Layout';
 import Card from '@/components/resume/Card';
 import resume from '@/data/resume/resume.json';
-import { InferGetServerSidePropsType, GetServerSideProps } from 'next';
+import {
+    InferGetServerSidePropsType,
+    GetServerSideProps,
+    InferGetStaticPropsType,
+} from 'next';
 import { ServerResponse } from 'http';
 import addPreview from '@/hooks/addPreview';
 
@@ -14,12 +18,9 @@ interface IResumes {
     imgSrc?: string;
 }
 
-export async function getServerSideProps({ res }: { res: ServerResponse }) {
+export async function getStaticProps() {
     //image 안에 url 있음
-    res.setHeader(
-        'Cache-Control',
-        'public, s-maxage=10, stale-while-revalidate=59'
-    );
+
     const newResumes = await Promise.all(
         resume.map((object) => {
             return addPreview(object);
@@ -32,12 +33,7 @@ export async function getServerSideProps({ res }: { res: ServerResponse }) {
     };
 }
 
-function Resume({
-    resumes,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
-    useEffect(() => {
-        console.log(resumes);
-    }, []);
+function Resume({ resumes }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
         <StyledLayout>
             <h1>resume</h1>
