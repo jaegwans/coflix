@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { use, useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useBJData } from '@/hooks/api/useBJData';
 
-function Featured({ bj }: { bj: any }) {
-    const url = `https://www.acmicpc.net/problem/${bj.id}`;
+function Featured() {
+    const url = `https://www.acmicpc.net/problem/`;
+
+    const { isLoading, isError, data, error } = useBJData();
+
+    isLoading && <div>로딩중</div>;
+    isError && <div>Error: 재시도 해주세요.</div>;
+
     return (
-        <StyledFeatured href={url} target="_blank" rel="noopener noreferrer">
+        <StyledFeatured
+            href={url + data?.problemId}
+            target="_blank"
+            rel="noopener noreferrer"
+        >
             <PSWrapper>
                 <h3 className="title">오늘의 코테 문제로 이동</h3>
                 <div className="ps">
-                    <h2>{bj.title}</h2>
-                    <p>{bj.id}번</p>
+                    <h2>{data?.titleKo}</h2>
+                    <p>{data?.problemId}번</p>
                 </div>
-                <div>정답률:{bj.rate}</div>
+                <div>평균 시도 횟수:{data?.averageTries}번</div>
             </PSWrapper>
         </StyledFeatured>
     );

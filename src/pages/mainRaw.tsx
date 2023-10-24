@@ -61,7 +61,7 @@ function MainRaw({
     return (
         <StyledLayout>
             <Tab />
-            <Featured bj={bj} />
+            <Featured />
 
             {videoLists.map(
                 (
