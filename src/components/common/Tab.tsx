@@ -21,7 +21,7 @@ function Tab() {
 
 export default Tab;
 
-const StyledTab = styled.header<{ paint: boolean }>`
+const StyledTab = styled.nav<{ paint: boolean }>`
     ul {
         display: flex;
         flex-direction: row;

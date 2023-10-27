@@ -55,7 +55,7 @@ function Category({
 
 export default React.memo(Category); //videos
 
-const StyeldVideos = styled.div`
+const StyeldVideos = styled.article`
     margin-top: 4rem;
     display: flex;
     justify-content: flex-start;
@@ -72,7 +72,7 @@ const StyledCategoryTitle = styled.div`
     color: #e6e6e6;
 `;
 
-const StyledCategory = styled.div`
+const StyledCategory = styled.section`
     height: 13.25rem;
     width: 100%;
     display: flex;
