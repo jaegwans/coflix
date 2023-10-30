@@ -13,6 +13,7 @@ function Tab() {
                 </li>
                 <li onClick={() => onPush('/intro')}>intro</li>
                 <li onClick={() => onPush('/edit')}>edit</li>
+                <li onClick={() => onPush('/qna')}>QnA</li>
                 <li onClick={() => onPush('/resume')}>resume</li>
             </ul>
         </StyledTab>
