@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '@/components/common/Layout';
 import styled from 'styled-components';
 import { useQnA } from '@/hooks/api/useQnA';
@@ -12,9 +12,16 @@ function Qna() {
 
     isLoading && <div>로딩중</div>;
 
+    const [post, setPost] = useState({});
+
     return (
         <StyledLayout>
             <h1>Post</h1>
+            <input type="text" placeholder="이름" name="name" />
+            <StyeldArea
+                placeholder="무엇이 궁금하신가요?"
+                name="content"
+            ></StyeldArea>
 
             <StyeldButton
                 type="button"
@@ -33,6 +40,13 @@ function Qna() {
 }
 
 export default Qna;
+
+const StyeldArea = styled.textarea`
+    all: unset;
+    border: 1px solid ${({ theme }) => theme.color.white};
+    height: 100%;
+    width: 90%;
+`;
 
 const StyledPostRow = styled.div`
     cursor: pointer;
@@ -66,6 +80,7 @@ const StyledLayout = styled(Layout)`
         align-self: flex-start;
         margin-left: 1.5rem;
     }
+    height: 100%;
     position: relative;
     padding-top: ${({ theme }) => theme.len.tabHeight};
     display: flex;

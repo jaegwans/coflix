@@ -11,24 +11,32 @@ function Qna() {
     }, [isLoading]);
 
     isLoading && <div>로딩중</div>;
-
     return (
         <StyledLayout>
-            <h1>QnA</h1>
-            {data?.map(({ id, content, name }: IPostResponse) => (
-                <StyledPostRow key={id}>
-                    <span>
-                        {id}
-                        {')'} {content}
-                    </span>
-                    <span>{name}</span>
-                </StyledPostRow>
-            ))}
-            <StyeldButton type="button" onClick={() => onPush('/qna/post')}>
-                글쓰기
-            </StyeldButton>
+            <p>백엔드 서버 요금문제로 일시 중단중입니다.</p>
+            <p>백엔드 코드는 아래 레포에서 확인할 수 있습니다.</p>
+            <a href="https://github.com/jaegwans/coflix-back">
+                https://github.com/jaegwans/coflix-back
+            </a>
         </StyledLayout>
     );
+    // return (
+    //     <StyledLayout>
+    //         <h1>QnA</h1>
+    //         {data?.map(({ id, content, name }: IPostResponse) => (
+    //             <StyledPostRow key={id}>
+    //                 <span>
+    //                     {id}
+    //                     {')'} {content}
+    //                 </span>
+    //                 <span>{name}</span>
+    //             </StyledPostRow>
+    //         ))}
+    //         <StyeldButton type="button" onClick={() => onPush('/qna/post')}>
+    //             글쓰기
+    //         </StyeldButton>
+    //     </StyledLayout>
+    // );
 }
 
 export default Qna;
